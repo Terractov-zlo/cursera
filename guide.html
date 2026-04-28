@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hexletgram — Как пользоваться</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Onest:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">H</div>
+        <div class="brand-text">
+          <div class="brand-title">hexletgram</div>
+          <div class="brand-subtitle">Студенческая лента Hexlet</div>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a class="nav-link" href="index.html">Лента</a>
+        <a class="nav-link" href="about.html">О проекте</a>
+        <a class="nav-link active" href="guide.html">Как пользоваться</a>
+        <a class="nav-link" href="rules.html">Правила</a>
+      </nav>
+      <div class="topbar-actions">
+        <button id="themeToggleBtn" class="btn ghost" type="button" aria-pressed="false">
+          Темная тема
+        </button>
+      </div>
+    </header>
+
+    <main class="page-wrap">
+      <section class="page-card">
+        <h1>Как пользоваться</h1>
+        <ol class="plain-list ordered">
+          <li>Откройте вкладку «Лента» и заполните регистрацию (имя, колледж, интересы).</li>
+          <li>После регистрации публикуйте сообщения и задавайте вопросы по учебе.</li>
+          <li>Используйте фильтры, поиск и сортировку для навигации по ленте.</li>
+          <li>Ставьте лайки и оставляйте конструктивные комментарии.</li>
+          <li>Меняйте светлую/темную тему кнопкой в шапке сайта.</li>
+        </ol>
+      </section>
+
+      <section class="page-card">
+        <h2>Полезный совет</h2>
+        <p>
+          Чтобы быстрее находить поддержку, пишите посты с конкретным вопросом:
+          что уже пробовали, где именно возникла сложность и какой результат хотите получить.
+        </p>
+      </section>
+    </main>
+
+    <script src="theme.js"></script>
+  </body>
+</html>

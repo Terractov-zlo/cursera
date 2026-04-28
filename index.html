@@ -1,101 +1,112 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мини‑соцсеть: Лента</title>
+    <title>hexletgram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&family=Unbounded:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Onest:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-orb bg-orb-a"></div>
-    <div class="bg-orb bg-orb-b"></div>
-    <div class="bg-grid"></div>
-
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark">S</div>
+        <div class="brand-mark">H</div>
         <div class="brand-text">
-          <div class="brand-title">Социальная Мини‑Платформа</div>
-          <div class="brand-subtitle">Посты, лайки, комментарии</div>
+          <div class="brand-title">hexletgram</div>
+          <div class="brand-subtitle">Студенческая лента Hexlet</div>
         </div>
       </div>
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a class="nav-link active" href="index.html">Лента</a>
+        <a class="nav-link" href="about.html">О проекте</a>
+        <a class="nav-link" href="guide.html">Как пользоваться</a>
+        <a class="nav-link" href="rules.html">Правила</a>
+      </nav>
       <div class="topbar-actions">
-        <button id="seedBtn" class="btn ghost">Сбросить демо</button>
-        <button id="newPostBtn" class="btn primary">Новый пост</button>
+        <button id="seedBtn" class="btn ghost" type="button">Сбросить демо</button>
+        <button id="newPostBtn" class="btn primary" type="button">Новый пост</button>
+        <button
+          id="themeToggleBtn"
+          class="btn ghost"
+          type="button"
+          aria-pressed="false"
+        >
+          Темная тема
+        </button>
       </div>
     </header>
 
-    <section class="info-header">
-      <div class="info-card">
-        <h2>О проекте</h2>
-        <p>
-          Автор: Хасанов Азиз
-          <br />
-          Группа/курс: 12 тис
-          <br />
-          Колледж: Хекслет
-          <br />
-          Контакты: aziiixw@gmail.com
-        </p>
-      </div>
-      <div class="info-card">
-        <h3>Цель проекта</h3>
-        <p>
-          Создать курсовую работу, демонстрирующую проектирование интерфейса
-          социальной мини‑платформы: работу с лентой, взаимодействие пользователя
-          (лайки, комментарии, фильтры) и хранение данных на клиенте.
-        </p>
-      </div>
-      <div class="info-card">
-        <h3>Как пользоваться</h3>
-        <ul class="info-list">
-          <li>Заполните имя автора и текст поста, нажмите «Опубликовать».</li>
-          <li>Лайкайте посты кликом по сердцу или двойным кликом по тексту.</li>
-          <li>Открывайте комментарии, добавляйте свои и фильтруйте ленту.</li>
-          <li>Используйте поиск, сортировку и фильтры по настроению.</li>
-        </ul>
-      </div>
-    </section>
-
-    <main class="layout">
+    <main class="layout layout-single">
       <section class="composer">
         <div class="composer-head">
           <h2>Создать пост</h2>
-          <p>Пишем коротко, по делу и по душе.</p>
+          <p>Короткие апдейты, полезные идеи и вопросы для сообщества Hexlet.</p>
         </div>
+
+        <div class="auth-box">
+          <h3>Регистрация</h3>
+          <p>Чтобы писать в ленту и комментарии, зарегистрируйте свой профиль.</p>
+          <label class="field">
+            <span>Ваше имя</span>
+            <input
+              id="registerNameInput"
+              type="text"
+              placeholder="Например, Алина"
+              maxlength="40"
+            />
+          </label>
+          <label class="field">
+            <span>Колледж</span>
+            <input
+              id="registerCollegeInput"
+              type="text"
+              placeholder="Например, Hexlet College"
+              maxlength="80"
+            />
+          </label>
+          <label class="field">
+            <span>Интерес в саморазвитии</span>
+            <input
+              id="registerFocusInput"
+              type="text"
+              placeholder="Например, Frontend и разговорный английский"
+              maxlength="100"
+            />
+          </label>
+          <div class="auth-actions">
+            <button id="registerBtn" class="btn primary" type="button">Сохранить профиль</button>
+            <button id="logoutBtn" class="btn ghost mini" type="button">Сменить профиль</button>
+          </div>
+          <div id="activeProfile" class="auth-status">Профиль еще не зарегистрирован.</div>
+        </div>
+
         <label class="field">
-          <span>Имя автора</span>
-          <input id="authorInput" type="text" placeholder="Например, Алина" />
-        </label>
-        <label class="field">
-          <span>Текст</span>
+          <span>Сообщение</span>
           <textarea
             id="contentInput"
             rows="5"
-            placeholder="Что нового?"
+            placeholder="Поделитесь идеей, вопросом или полезной находкой"
           ></textarea>
         </label>
         <div class="composer-tools">
           <div class="counter">
             <span id="charCount">0</span>/280
           </div>
-          <button id="clearBtn" class="btn ghost mini">Очистить</button>
+          <button id="clearBtn" class="btn ghost mini" type="button">Очистить</button>
         </div>
         <div class="preview">
-          <div class="preview-title">Предпросмотр</div>
+          <div class="preview-title">Черновик</div>
           <div class="preview-meta">
             <span id="previewMood" class="tag">Настроение: —</span>
           </div>
-          <div id="livePreview" class="preview-body">
-            Здесь появится текст вашего поста.
-          </div>
+          <div id="livePreview" class="preview-body">Здесь появится текст вашего поста.</div>
         </div>
+        <div id="composerStatus" class="auth-status muted">Посты публикуются только после регистрации.</div>
         <label class="field">
           <span>Настроение</span>
           <select id="moodInput">
@@ -105,13 +116,13 @@
             <option value="Легко">Легко</option>
           </select>
         </label>
-        <button id="createBtn" class="btn primary full">Опубликовать</button>
+        <button id="createBtn" class="btn primary full" type="button">Отправить</button>
       </section>
 
       <section class="feed">
         <div class="feed-head">
           <div>
-            <h2>Лента</h2>
+            <h2>Лента hexletgram</h2>
             <div class="feed-meta">
               <span id="postCount">0 постов</span>
             </div>
@@ -125,11 +136,7 @@
               </select>
             </div>
             <div class="filters">
-              <input
-                id="searchInput"
-                type="search"
-                placeholder="Поиск по тексту"
-              />
+              <input id="searchInput" type="search" placeholder="Поиск по сообщениям" />
               <select id="moodFilter">
                 <option value="all">Все настроения</option>
                 <option value="Уверенно">Уверенно</option>
@@ -137,10 +144,8 @@
                 <option value="Спокойно">Спокойно</option>
                 <option value="Легко">Легко</option>
               </select>
-              <button id="likedOnlyBtn" class="chip">Только лайкнутые</button>
-              <button id="commentedOnlyBtn" class="chip">
-                С комментариями
-              </button>
+              <button id="likedOnlyBtn" class="chip" type="button">Только с лайками</button>
+              <button id="commentedOnlyBtn" class="chip" type="button">С комментариями</button>
             </div>
           </div>
         </div>
@@ -156,56 +161,44 @@
           <div class="post-time"></div>
         </header>
         <div class="post-content"></div>
-        <div class="post-media"></div>
-        <a class="post-link" target="_blank" rel="noopener"></a>
         <textarea class="post-edit" rows="4"></textarea>
         <div class="post-edit-actions">
-          <button class="btn primary save-edit">Сохранить</button>
-          <button class="btn ghost cancel-edit">Отмена</button>
+          <button class="btn primary save-edit" type="button">Сохранить</button>
+          <button class="btn ghost cancel-edit" type="button">Отмена</button>
         </div>
         <div class="post-tags"></div>
         <div class="post-actions">
-          <button class="btn ghost icon-btn like-btn" aria-label="Лайк">
+          <button class="btn ghost icon-btn like-btn" aria-label="Лайк" type="button">
             <img src="assets/icons/heart.svg" alt="" aria-hidden="true" />
             <span class="like-label sr-only">Лайк</span>
             <span class="like-count icon-badge">0</span>
           </button>
-          <button
-            class="btn ghost icon-btn comment-toggle"
-            aria-label="Комментарии"
-          >
+          <button class="btn ghost icon-btn comment-toggle" aria-label="Комментарии" type="button">
             <img src="assets/icons/comment.svg" alt="" aria-hidden="true" />
             <span class="sr-only">Комментарии</span>
             <span class="comment-count icon-badge">0</span>
           </button>
-          <button class="btn ghost icon-btn edit-btn" aria-label="Редактировать">
+          <button class="btn ghost icon-btn edit-btn" aria-label="Редактировать" type="button">
             <img src="assets/icons/edit.svg" alt="" aria-hidden="true" />
             <span class="sr-only">Редактировать</span>
           </button>
-          <button class="btn ghost icon-btn copy-btn" aria-label="Копировать">
+          <button class="btn ghost icon-btn copy-btn" aria-label="Копировать" type="button">
             <img src="assets/icons/copy.svg" alt="" aria-hidden="true" />
             <span class="sr-only">Копировать</span>
-          </button>
-          <button
-            class="btn ghost danger icon-btn delete-btn"
-            aria-label="Удалить"
-          >
-            <img src="assets/icons/delete.svg" alt="" aria-hidden="true" />
-            <span class="sr-only">Удалить</span>
           </button>
         </div>
         <div class="comments">
           <div class="comments-list"></div>
           <div class="comments-form">
-            <input class="comment-author" type="text" placeholder="Ваше имя" />
             <input class="comment-text" type="text" placeholder="Комментарий" />
-            <button class="btn primary comment-add">Добавить</button>
+            <button class="btn primary comment-add" type="button">Добавить</button>
           </div>
         </div>
       </article>
     </template>
 
     <div id="toast" class="toast"></div>
+    <script src="theme.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
